@@ -113,24 +113,12 @@ AMD通过技术创新和战略转型，成功实现了对Intel的超越。在AI�
 
 ## 8. 财务文档与资料来源
 
-### 8.1 重要财务文件
-
-以下文件可下载至 `AMD_Research/financial_documents` 文件夹：
-
-#### 8.1.1 招股说明书
+### 8.1 招股说明书
 
 - AMD最新招股书修订版（Form 424B3）：[SEC EDGAR](https://www.sec.gov/Archives/edgar/data/2488/000119312521071625/d83168d424b3.htm)
 
-#### 8.1.2 季度财报
+### 8.2 季度财报
 
 - AMD投资者关系网站: [AMD Investor Relations](https://ir.amd.com/)
 - AMD财报：[AMD Financial Results](https://ir.amd.com/financial-information/financial-results)
-
-### 8.2 其他重要资料来源
-
-- AMD官方网站：[www.amd.com](https://www.amd.com)
-- AMD投资者关系网站：[ir.amd.com](https://ir.amd.com)
-- SEC EDGAR数据库：[www.sec.gov/edgar](https://www.sec.gov/edgar)
-- 彭博终端（需要订阅）
-- 路透社（需要订阅）
 
