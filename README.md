@@ -92,7 +92,7 @@ AMD通过技术创新和战略转型，成功实现了对Intel的超越。在AI�
 以下文件可下载至 `AMD_Research/financial_documents` 文件夹：
 
 #### 8.1.1 招股说明书
-- AMD最新招股书修订版（Form 424B3）：[SEC EDGAR](https://www.sec.gov/Archives/edgar/data/2488/000119312523000000/d456488d424b3.htm)
+- AMD最新招股书修订版（Form 424B3）：[SEC EDGAR](https://www.sec.gov/Archives/edgar/data/2488/000119312521071625/d83168d424b3.htm)
   - 文件编号：456488
   - 提交日期：2023年
   - 包含公司最新业务状况、风险因素和财务信息
