@@ -93,11 +93,11 @@ AMD通过技术创新和战略转型，成功实现了对Intel的超越。在AI�
 
 #### 8.1.1 招股说明书
 - AMD最新招股书修订版（Form 424B3）：[SEC EDGAR](https://www.sec.gov/Archives/edgar/data/2488/000119312521071625/d83168d424b3.htm)
-  - 文件编号：456488
-  - 提交日期：2023年
+  - 提交日期：2021年
   - 包含公司最新业务状况、风险因素和财务信息
 
-#### 8.1.2 最近8个季度财报
+#### 8.1.2 季度财报
+- [AMD投资者关系网站](https://ir.amd.com/)
 - 2024年Q1财报（2024年4月30日）：[AMD Investor Relations](https://ir.amd.com/news-events/press-releases/detail/1065/amd-reports-first-quarter-2024-financial-results)
 - 2023年Q4财报（2024年1月30日）：[AMD Investor Relations](https://ir.amd.com/news-events/press-releases/detail/1057/amd-reports-fourth-quarter-and-full-year-2023-financial-results)
 - 2023年Q3财报（2023年10月31日）：[AMD Investor Relations](https://ir.amd.com/news-events/press-releases/detail/1049/amd-reports-third-quarter-2023-financial-results)
