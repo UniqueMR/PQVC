@@ -51,112 +51,144 @@ def generate_charts(df, prefix):
         print(f"{quarter} | {rev:.1f} | {gp:.1f} | {cogs:.1f} | {total_height:.1f} (should equal {rev:.1f})")
 
     # 1. Revenue Composition (Stacked Bar)
-    plt.figure(figsize=(12, 6))
+    fig, ax1 = plt.subplots(figsize=(12, 7))  # Increased height
     
     # Set y-axis limits with padding for full revenue height
     y_max = revenue_data.max()
     y_min = 0  # Start from 0 to show full bar height
-    y_padding = y_max * 0.1  # Add 10% padding
-    plt.ylim(y_min, y_max + y_padding)
+    y_padding = y_max * 0.2  # Increase padding to 20% to fit all labels
+    ax1.set_ylim(y_min, y_max + y_padding)
 
     # Create stacked bars
     bar_width = 0.4
-    bottom_bars = plt.bar(x_values, cogs_data, width=bar_width, label='Cost of Goods Sold', color='#a9cce3')  # Light blue
-    top_bars = plt.bar(x_values, gross_profit_data, width=bar_width, bottom=cogs_data, label='Gross Profit', color='#2980b9')  # Saturated blue
+    bottom_bars = ax1.bar(x_values, cogs_data, width=bar_width, label='Cost of Goods Sold', color='#a9cce3')  # Light blue
+    top_bars = ax1.bar(x_values, gross_profit_data, width=bar_width, bottom=cogs_data, label='Gross Profit', color='#2980b9')  # Saturated blue
 
-    plt.title(f'AMD Revenue Composition ({prefix})', fontsize=14, pad=20)
-    plt.xlabel('Quarter', fontsize=12)
-    plt.ylabel('Amount (Million USD)', fontsize=12)
+    ax1.set_title(f'AMD Revenue Composition ({prefix})', fontsize=14, pad=20)
+    ax1.set_xlabel('Quarter', fontsize=12)
+    ax1.set_ylabel('Amount (Million USD)', fontsize=12)
 
     # Format x-axis
-    plt.xticks(x_values, quarters, rotation=45)
+    ax1.set_xticks(x_values)
+    ax1.set_xticklabels(quarters, rotation=45)
 
     # Add value labels
     for i in x_values:
         # Total revenue label at top
         total = revenue_data[i]
         value_str, size = format_value(total)
-        plt.text(i, total, value_str, 
+        ax1.text(i, total, value_str, 
                  ha='center', va='bottom', 
                  fontsize=12 if size == 'normal' else 9)
         
         # COGS label in middle of bottom section
         cogs = cogs_data[i]
         value_str, size = format_value(cogs)
-        plt.text(i, cogs/2, value_str, 
+        ax1.text(i, cogs/2, value_str, 
                  ha='center', va='center', color='white',
                  fontsize=12 if size == 'normal' else 9)
         
         # Gross profit label in middle of top section
         gp = gross_profit_data[i]
         value_str, size = format_value(gp)
-        plt.text(i, cogs + gp/2, value_str, 
+        ax1.text(i, cogs + gp/2, value_str, 
                  ha='center', va='center', color='white',
                  fontsize=12 if size == 'normal' else 9)
 
-    plt.legend(fontsize=10, loc='upper left')
-    plt.grid(True, alpha=0.3)
-    plt.tight_layout()
+    # Add secondary y-axis for margin
+    ax2 = ax1.twinx()
+    margin_data = df[df['metric'] == 'gross_margin'].sort_values('quarter')['value'].values * 100
+    ax2.plot(x_values, margin_data, color='#1a5f96', linestyle='--', marker='o', label='Gross Margin')  # Darkest blue
+    ax2.set_ylabel('Margin (%)', fontsize=12)
+    
+    # Set fixed y-axis range for margin (0-100%)
+    ax2.set_ylim(0, 100)
+
+    # Combine legends
+    lines1, labels1 = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines1 + lines2, labels1 + labels2, fontsize=10, loc='upper left')
+
+    ax1.grid(True, alpha=0.3)
+    plt.subplots_adjust(bottom=0.15)  # Adjust bottom margin
     plt.savefig(os.path.join(figures_dir, f'{prefix}_revenue_composition.png'), dpi=300, bbox_inches='tight')
     plt.close()
 
     # 2. Operating Income vs Expenses (Stacked Bar)
-    plt.figure(figsize=(12, 6))
+    fig, ax1 = plt.subplots(figsize=(12, 7))
 
     # Get data
     operating_expenses = df[df['metric'] == 'operating_expenses'].sort_values('quarter')['value'].values
     operating_income = df[df['metric'] == 'operating_income'].sort_values('quarter')['value'].values
 
-    # Calculate the height threshold for text placement (e.g., 200M)
-    height_threshold = 200
-
     # Create stacked bars
-    plt.bar(x_values, operating_expenses, width=bar_width, label='Operating Expenses', color='#d2b4de')  # Light purple
-    plt.bar(x_values, operating_income, width=bar_width, bottom=operating_expenses, label='Operating Income', color='#8e44ad')  # Saturated purple
+    ax1.bar(x_values, operating_expenses, width=bar_width, label='Operating Expenses', color='#d2b4de')  # Light purple
+    ax1.bar(x_values, operating_income, width=bar_width, bottom=operating_expenses, label='Operating Income', color='#8e44ad')  # Saturated purple
 
-    plt.title(f'AMD Operating Performance ({prefix})', fontsize=14, pad=20)
-    plt.xlabel('Quarter', fontsize=12)
-    plt.ylabel('Amount (Million USD)', fontsize=12)
+    # Set y-axis limits with padding
+    y_max = (operating_expenses + operating_income).max()
+    y_padding = y_max * 0.15
+    ax1.set_ylim(0, y_max + y_padding)
+
+    ax1.set_title(f'AMD Operating Performance ({prefix})', fontsize=14, pad=20)
+    ax1.set_xlabel('Quarter', fontsize=12)
+    ax1.set_ylabel('Amount (Million USD)', fontsize=12)
 
     # Format x-axis
-    plt.xticks(x_values, quarters, rotation=45)
+    ax1.set_xticks(x_values)
+    ax1.set_xticklabels(quarters, rotation=45)
 
     # Add value labels
     for i in x_values:
         # Total label at top
         total = operating_expenses[i] + operating_income[i]
         value_str, size = format_value(total)
-        plt.text(i, total, value_str, 
+        ax1.text(i, total, value_str, 
                  ha='center', va='bottom', 
                  fontsize=12 if size == 'normal' else 9)
         
         # Operating expenses label
         oe = operating_expenses[i]
         value_str, size = format_value(oe)
-        if oe < height_threshold:  # If bar is too small, place text to the right
-            plt.text(i + bar_width/2 + 0.1, oe/2, value_str, 
-                    ha='left', va='center', color='black',
-                    fontsize=12 if size == 'normal' else 9)
-        else:  # Otherwise, place text inside bar
-            plt.text(i, oe/2, value_str, 
-                    ha='center', va='center', color='white',
-                    fontsize=12 if size == 'normal' else 9)
+        ax1.text(i, oe/2, value_str, 
+                ha='center', va='center', color='white',
+                fontsize=12 if size == 'normal' else 9)
         
         # Operating income label
         oi = operating_income[i]
         value_str, size = format_value(oi)
-        if oi < height_threshold:  # If bar is too small, place text to the right
-            plt.text(i + bar_width/2 + 0.1, oe + oi/2, value_str, 
+        if oi < 1000:  # If less than 1B, place text to the right
+            ax1.text(i + bar_width/2 + 0.05, oe + oi/2, value_str, 
                     ha='left', va='center', color='black',
                     fontsize=12 if size == 'normal' else 9)
         else:  # Otherwise, place text inside bar
-            plt.text(i, oe + oi/2, value_str, 
+            ax1.text(i, oe + oi/2, value_str, 
                     ha='center', va='center', color='white',
                     fontsize=12 if size == 'normal' else 9)
 
-    plt.legend(fontsize=10, loc='upper left')
-    plt.grid(True, alpha=0.3)
-    plt.tight_layout()
+    # Add secondary y-axis for margins
+    ax2 = ax1.twinx()
+    
+    # Plot operating margin
+    op_margin_data = df[df['metric'] == 'operating_margin'].sort_values('quarter')['value'].values * 100
+    line1 = ax2.plot(x_values, op_margin_data, color='#6c3483', linestyle='--', marker='o', label='Operating Margin')  # Darkest purple
+    
+    # Plot operating expense ratio
+    expense_ratio_data = df[df['metric'] == 'operating_expense_revenue_ratio'].sort_values('quarter')['value'].values * 100
+    line2 = ax2.plot(x_values, expense_ratio_data, color='#884ea0', linestyle='--', marker='s', label='OpEx/Revenue')  # Dark purple
+    
+    ax2.set_ylabel('Percentage (%)', fontsize=12)
+    
+    # Set fixed y-axis range for percentages (0-100%)
+    ax2.set_ylim(0, 100)
+
+    # Combine legends
+    lines1, labels1 = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines1 + lines2, labels1 + labels2, fontsize=10, loc='upper left')
+
+    ax1.grid(True, alpha=0.3)
+    plt.subplots_adjust(bottom=0.15)  # Adjust bottom margin
     plt.savefig(os.path.join(figures_dir, f'{prefix}_operating_performance.png'), dpi=300, bbox_inches='tight')
     plt.close()
 
@@ -193,9 +225,7 @@ def generate_charts(df, prefix):
         # Format x-axis
         plt.xticks(metric_data['quarter'], rotation=45)
         
-        # Add value labels
-        for x, y in zip(metric_data['quarter'], y_values):
-            plt.annotate(value_format(y), (x, y), textcoords="offset points", xytext=(0,10), ha='center')
+        # Remove value labels for line charts
             
         plt.grid(True, alpha=0.3)
         plt.tight_layout()
