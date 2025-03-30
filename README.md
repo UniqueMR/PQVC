@@ -67,9 +67,9 @@ AMD收购Xilinx，采用全股票交易结构，每股Xilinx普通股将换取1.
 这种分部视图有助于理解各业务单元的相对实力和盈利能力。
 
 <div align="center">
-<img src="./docs/financial/figures/segment_revenue.png" height='200'>
-<img src="./docs/financial/figures/segment_operating_income.png" height='200'>
-<img src="./docs/financial/figures/segment_margins.png" height='200'>
+<img src="./docs/financial/figures/segment_revenue.png" height='300'>
+<img src="./docs/financial/figures/segment_operating_income.png" height='300'>
+<img src="./docs/financial/figures/segment_margins.png" height='300'>
 </div>
 
 # 附录
