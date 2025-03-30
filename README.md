@@ -4,9 +4,7 @@
 
 ## 交易概述
 
-AMD收购Xilinx，采用全股票交易结构，每股Xilinx普通股将换取1.7234股AMD普通股。AMD将为此次并购发行约4.236亿股股票。原Xilinx股东将持有合并后AMD约25.9%的股份，远AMD股东持有约74.1%。
-
-交易签署前12个月合并收入约116亿美元，新公司有望在合并完成后的18个月内实现3亿美元的协同效益，管理层预期将总可寻址市场(TAM)扩大至1100亿美元。
+AMD收购Xilinx，采用全股票交易结构，每股Xilinx普通股将换取1.7234股AMD普通股。AMD将为此次并购发行约4.236亿股股票。原Xilinx股东将持有合并后AMD约25.9%的股份，远AMD股东持有约74.1%。交易签署前12个月合并收入约116亿美元，新公司有望在合并完成后的18个月内实现3亿美元的协同效益，管理层预期将总可寻址市场(TAM)扩大至1100亿美元。
 
 ## 战略意义分析
 
@@ -22,27 +20,57 @@ AMD收购Xilinx，采用全股票交易结构，每股Xilinx普通股将换取1.
 
 # 财报分析
 
+### 营业收入
+
+营业收入构成图展示了AMD总营业收入的核心组成部分：销售成本（COGS）和毛利。图表中包含了毛利率走势线（以百分比表示），同时展示GAAP和非GAAP指标，用于追踪盈利能力趋势。
+
+- 毛利率保持在45%-50%的稳定区间
+- 营业收入规模呈现季度波动，整体维持在50-70亿美元区间，近两个季度显著增长
+
 <div align="center">
 <img src="./docs/financial/figures/gaap_revenue_composition.png" height='300'>
 <img src="./docs/financial/figures/nongaap_revenue_composition.png" height='300'>
 </div>
+
+### 运营表现
+
+运营表现图展示了AMD的运营效率，通过对比运营收入和运营费用的关系，跟踪两个关键百分比指标：运营利润率和运营费用占营业收入比，反映了公司的运营效率和成本管理能力。
+
+- 运营利润率呈现在周期波动的基础上呈现上升趋势，并在最近两个季度突破10%
+- 运营费用占营业收入比率保持在GAAP 40% (NON-GAAP 30%)左右的水平
 
 <div align="center">
 <img src="./docs/financial/figures/gaap_operating_performance.png" height='300'>
 <img src="./docs/financial/figures/nongaap_operating_performance.png" height='300'>
 </div>
 
+### 股东回报
+
+股东回报分析图通过双轴展示了AMD的最终经营成果：归属于普通股股东的净利润（柱状图，左轴）和每股收益（柱状图，右轴）。GAAP和非GAAP版本的对比为投资者提供了不同维度的业绩评估视角。
+
+- 净利润和每股收益具备非常显著的周期性
+- 近两个季度的增长体现在了NON-GAAP当中，但并未体现于GAAP
+
 <div align="center">
 <img src="./docs/financial/figures/gaap_profit_metrics.png" height='300'>
 <img src="./docs/financial/figures/nongaap_profit_metrics.png" height='300'>
 </div>
+
+### 业务板块
+
+业务板块分析图展示了AMD各主要业务板块的表现，包括数据中心、客户端、游戏和嵌入式。图表包含各板块的营业收入贡献、运营利润分布和利润率。
+
+- 相比于最初的游戏板块，数据中心板块逐渐成为公司最大营业收入来源，占比接近60%
+- 数据中心板块和游戏板块在周期性变动的过程当中持续增长
+- 游戏板块持续萎缩，并在2024年显著下降；嵌入式板块同样收缩明显，但在最近两个季度有所回升
+
+这种分部视图有助于理解各业务单元的相对实力和盈利能力。
 
 <div align="center">
 <img src="./docs/financial/figures/segment_revenue.png" height='200'>
 <img src="./docs/financial/figures/segment_operating_income.png" height='200'>
 <img src="./docs/financial/figures/segment_margins.png" height='200'>
 </div>
-
 
 # 附录
 

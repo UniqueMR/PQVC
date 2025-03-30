@@ -31,7 +31,7 @@ def generate_profit_chart(df, prefix):
     x_values = np.arange(len(quarters))
 
     # Set up colors (using same color with different saturations)
-    base_color = '#27ae60' if prefix == 'gaap' else '#2ecc71'  # Dark green for GAAP, Light green for non-GAAP
+    base_color = '#27ae60'  # Dark green for GAAP, Light green for non-GAAP
     colors = {
         'income': base_color,          # More saturated
         'eps': f'{base_color}80'       # Less saturated (adding alpha)
