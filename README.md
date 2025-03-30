@@ -33,9 +33,14 @@ AMD收购Xilinx，采用全股票交易结构，每股Xilinx普通股将换取1.
 </div>
 
 <div align="center">
-<img src="./docs/financial/figures/segment_revenue.png" height='300'>
-<img src="./docs/financial/figures/segment_operating_income.png" height='300'>
-<img src="./docs/financial/figures/segment_margins.png" height='300'>
+<img src="./docs/financial/figures/gaap_profit_metrics.png" height='300'>
+<img src="./docs/financial/figures/nongaap_profit_metrics.png" height='300'>
+</div>
+
+<div align="center">
+<img src="./docs/financial/figures/segment_revenue.png" height='200'>
+<img src="./docs/financial/figures/segment_operating_income.png" height='200'>
+<img src="./docs/financial/figures/segment_margins.png" height='200'>
 </div>
 
 
