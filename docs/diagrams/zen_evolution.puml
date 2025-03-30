@@ -1,0 +1,62 @@
+@startuml
+!theme plain
+skinparam backgroundColor transparent
+skinparam sequence {
+    MessageAlign center
+    ArrowColor #2196F3
+    LifeLineBorderColor #E0E0E0
+    LifeLineBackgroundColor #FAFAFA
+    LifeLineThickness 2
+    ParticipantBorderColor #E0E0E0
+    ParticipantBackgroundColor #FFFFFF
+    ParticipantFontStyle bold
+    ParticipantFontColor #424242
+    ParticipantFontSize 14
+    MessageFontSize 13
+    MessageFontColor #424242
+    NoteBorderColor #E0E0E0
+    NoteBackgroundColor #FFFFFF
+    NoteFontColor #424242
+    NoteFontSize 12
+}
+
+skinparam ParticipantPadding 150
+skinparam BoxPadding 10
+skinparam Shadowing false
+skinparam RoundCorner 8
+
+participant "<color:#2196F3>Zen</color>\n<size:12>(2017)</size>" as Zen
+participant "<color:#2196F3>Zen2</color>\n<size:12>(2019)</size>" as Zen2
+participant "<color:#2196F3>Zen3</color>\n<size:12>(2020)</size>" as Zen3
+participant "<color:#2196F3>Zen4</color>\n<size:12>(2022)</size>" as Zen4
+
+Zen -[#2196F3]> Zen2 : <color:#2196F3><b>7nm + Chiplet</b></color>
+Zen2 -[#2196F3]> Zen3 : <color:#2196F3><b>IPC/频率提升</b></color>
+Zen3 -[#2196F3]> Zen4 : <color:#2196F3><b>5nm + DDR5/PCIe 5.0</b></color>
+
+note right of Zen
+  • SMT/大容量低延迟缓存/神经网络预测
+  • 单核相比Intel Skylake<10%
+  • 多核性能反超
+  • 能效比领先14nm
+end note
+
+note right of Zen2
+  • 单核持平Ice Lake
+  • 服务器64核vs28核领先
+  • 多线程超越9代酷睿
+end note
+
+note right of Zen3
+  • 单核超越11代酷睿
+  • EPYC Milan性能能效领先Ice Lake-SP
+  • 游戏性能持平，部分反超
+end note
+
+note right of Zen4
+  • 单核多核全面领先12/13代酷睿
+  • EPYC Genoa 96核遥遥领先Sapphire Rapids
+  • 移动端能效比优势扩大
+end note
+
+@enduml 

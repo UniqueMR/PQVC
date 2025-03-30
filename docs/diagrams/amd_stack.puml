@@ -1,0 +1,65 @@
+@startuml
+!theme plain
+skinparam backgroundColor transparent
+skinparam defaultFontSize 12
+skinparam defaultFontColor #424242
+skinparam roundCorner 10
+skinparam componentStyle rectangle
+
+' 设置布局参数
+skinparam ranksep 100
+skinparam nodesep 80
+
+skinparam component {
+    BackgroundColor #FFFFFF
+    BorderColor #E0E0E0
+    FontColor #424242
+    ArrowColor #2196F3
+    ArrowThickness 2
+}
+
+skinparam rectangle {
+    BackgroundColor #FAFAFA
+    BorderColor #E0E0E0
+    FontColor #424242
+}
+
+title <color:#424242><size:16><b>AMD技术与业务架构</b></size></color>
+
+top to bottom direction
+
+' 业务板块层
+[数据中心业务\n• EPYC + Instinct + FPGA\n• 大规模计算、存储、AI] as DataCenter
+[客户端业务\n• Ryzen + 芯片组\n• 台式机、笔记本] as Client
+[游戏业务\n• Radeon + 主机芯片\n• PC游戏、游戏主机] as Gaming
+[嵌入式业务\n• FPGA + Adaptive SoC\n• 工控、医疗、航空] as Embedded
+
+' 产品系列层
+[Ryzen系列\n桌面/移动/工作站] as Ryzen
+[EPYC系列\n96核/3D V-Cache] as EPYC
+[Radeon系列\n游戏/专业显卡] as Radeon
+[Instinct系列\nAI/HPC加速器] as Instinct
+[Versal系列\n可编程计算平台] as Versal
+
+' 技术基础层
+[Zen架构\nCPU核心技术] as Zen
+[RDNA架构\n游戏图形技术] as RDNA
+[CDNA架构\n计算加速技术] as CDNA
+[FPGA技术\n可编程逻辑] as FPGA
+
+' 层级之间的关联
+Zen --> Ryzen
+Zen --> EPYC
+RDNA --> Radeon
+CDNA --> Instinct
+FPGA --> Versal
+
+Ryzen --> Client
+Ryzen --> Gaming
+EPYC --> DataCenter
+Radeon --> Gaming
+Instinct --> DataCenter
+Versal --> Embedded
+Versal --> DataCenter
+
+@enduml 
