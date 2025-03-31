@@ -1,16 +1,14 @@
 # 成长史
 
-AMD的崛起之路可以追溯到2017年推出的革命性"Zen"架构。在此之前，AMD在CPU市场长期处于Intel的阴影之下。Zen架构的推出标志着AMD重返高性能处理器赛道，通过高IPC（每时钟指令数）和能效比设计，实现了对Intel产品难以想象的性能提升。
-
 ## 技术突破
 
 <div align="center">
 <img src="./docs/diagrams/zen_evolution.png" height='300'>
 </div>
 
-- **Chiplet设计**: 将处理器拆分为多个小芯片，提升良率、优化可扩展性、降低成本
-- **3D V-cache 堆叠技术**: 通过垂直封装提高缓存容量，如EPYC Milan-X的768MB L3缓存
-- **异构整合**: MI300加速器将CPU和GPU通过3D堆叠集成，共享高带宽内存
+<div align="center">
+<img src="./docs/diagrams/cpu_benchmark.png" height='400'>
+</div>
 
 ## 市场突破
 
@@ -25,89 +23,66 @@ AMD的崛起之路可以追溯到2017年推出的革命性"Zen"架构。在此�
 
 # 产品线和业务线
 
+<div align="center">
+<img src="./docs/diagrams/amd_prod_serv.png" height='400'>
+</div>
+
 ## 技术基础层
 
-### CPU与核心架构
+CPU与核心架构:
 
-- **Zen系列**: AMD的核心CPU架构，从2017年推出至今已迭代至Zen4，用于Ryzen桌面/移动处理器、EPYC服务器处理器、Threadripper工作站处理器
+- **Zen系列**: AMD的核心CPU架构，从2017年推出至今已迭代至Zen5，用于Ryzen桌面/移动处理器、EPYC服务器处理器、Threadripper工作站处理器
 
-### GPU图形与计算架构
+GPU图形与计算架构:
 
 - **RDNA架构**: 面向游戏图形的架构，现已发展到RDNA3，具备硬件光线追踪支持，用于Radeon RX系列显卡
 - **CDNA架构**: 面向数据中心GPU计算的架构，强化矩阵计算能力和高带宽缓存，支持多种AI数据格式（INT8/FP8/BF16/TF32等）
 
-### FPGA与自适应SoC
+FPGA与自适应SoC:
 
-- **Versal系列**: 自适应计算加速平台（ACAP），可编程逻辑，专用AI引擎，DSP单元，嵌入式CPU核心，用于5G通信、网络、安全和AI推理
+- **Versal系列**: 自适应计算加速平台（ACAP），可编程逻辑FPGA，专用AI引擎，DSP单元，嵌入式CPU核心，用于5G通信、网络、安全和AI推理
 
 ## 产品系列层
 
-### 处理器产品线
+处理器产品线:
 
-- **Ryzen系列**: 面向个人电脑的CPU产品
-  - 桌面版：Ryzen 5/7/9系列
-  - 移动版：Ryzen Mobile处理器
-  - 工作站版：Threadripper系列
-- **EPYC系列**: 面向数据中心的服务器CPU
-  - 支持高达96核
-  - 集成3D V-Cache缓存
-  - 针对云原生工作负载优化
+- **Ryzen系列**: 面向个人电脑的CPU产品，包含桌面端：Ryzen 5/7/9系列，移动端：Ryzen Mobile处理器，工作站端：Threadripper系列
+- **EPYC系列**: 面向数据中心的服务器CPU，旗舰EPYC 9965包含多达192核心，384线程，针对云原生工作负载优化
 
-### 图形产品线
+图形产品线:
 
-- **Radeon系列**: 消费级和专业图形产品
-  - 桌面独立显卡
-  - 工作站显卡
-  - 游戏主机定制SoC
-- **Instinct系列**: 数据中心GPU加速器
-  - 用于AI训练和推理
-  - 支持高性能计算
-  - 大容量HBM显存
+- **Radeon系列**: 消费级和专业图形产品，桌面独立显卡，工作站显卡，游戏主机定制SoC
+- **Instinct系列**: 数据中心GPU加速器，用于AI训练和推理，支持高性能计算(HPC)，大容量HBM显存
 
-### 自适应计算产品线
+自适应计算产品线:
 
-- **Versal系列**: 高端自适应计算产品
-  - Versal AI Core：侧重AI推理
-  - Versal Prime：通用型
-  - Versal Premium：高端型
-  - Versal AI Edge：面向边缘计算
+- **Versal系列**: 高端自适应计算产品，可用于AI推理与边缘计算
 
 ## 业务板块层
 
-### 数据中心业务
+数据中心业务:
 
-- **产品组合**:
-  - 服务器CPU（EPYC）
-  - 数据中心GPU（Instinct）
-  - DPUs、Adaptive SoC、FPGA
-- **应用场景**: 大规模计算、存储、AI
-- **技术特点**: CPU+GPU协同工作，Infinity Fabric高速互联
+- 服务器CPU（EPYC）+ 数据中心GPU（Instinct）+ DPUs、Adaptive SoC、FPGA
+- 大规模计算、存储、AI
+- CPU+GPU协同工作，Infinity Fabric高速互联
 
-### 客户端业务
+客户端业务:
 
-- **产品组合**:
-  - Ryzen处理器
-  - 相关芯片组
-  - 集成显卡
-- **应用场景**: 台式机、笔记本
-- **技术特点**: 全AMD平台优化，统一驱动和调度
+- Ryzen处理器集成Radeon显卡SoC
+- 台式机、笔记本
+- 全AMD平台优化，统一驱动和调度
 
-### 游戏业务
+游戏业务:
 
-- **产品组合**:
-  - Radeon独立显卡
-  - 半定制游戏主机芯片
-- **应用场景**: PC游戏、游戏主机
-- **技术特点**: 高性能每瓦，光追支持
+- Radeon独立显卡，PS5/Xbox半定制游戏主机芯片
+- PC游戏、游戏主机
+- 高performance per watt，FSR光追支持
 
-### 嵌入式业务
+嵌入式业务:
 
-- **产品组合**:
-  - FPGA
-  - Adaptive SoC
-  - 嵌入式处理器
-- **应用场景**: 汽车电子、工业控制、医疗设备、航空航天
-- **技术特点**: 可编程性、低功耗、高可靠性
+- FPGA + Adaptive SoC + 嵌入式处理器
+- 汽车电子、工业控制、医疗设备、航空航天
+- 可编程性、低功耗、高可靠性
 
 # 招股书分析
 
@@ -182,6 +157,10 @@ AMD收购Xilinx，采用全股票交易结构，每股Xilinx普通股将换取1.
 </div>
 
 # 附录
+
+## 技术资料
+
+- CPU Benchmark: [PassMark](https://www.cpubenchmark.net/high_end_cpus.html)
 
 ## 招股说明书
 

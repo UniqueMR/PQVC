@@ -8,7 +8,7 @@ skinparam componentStyle rectangle
 
 ' 设置布局参数
 skinparam ranksep 100
-skinparam nodesep 80
+skinparam nodesep 150
 
 skinparam component {
     BackgroundColor #FFFFFF
@@ -26,40 +26,49 @@ skinparam rectangle {
 
 title <color:#424242><size:16><b>AMD技术与业务架构</b></size></color>
 
-top to bottom direction
+' 使用布局方向
+left to right direction
 
-' 业务板块层
-[数据中心业务\n• EPYC + Instinct + FPGA\n• 大规模计算、存储、AI] as DataCenter
-[客户端业务\n• Ryzen + 芯片组\n• 台式机、笔记本] as Client
-[游戏业务\n• Radeon + 主机芯片\n• PC游戏、游戏主机] as Gaming
-[嵌入式业务\n• FPGA + Adaptive SoC\n• 工控、医疗、航空] as Embedded
+rectangle "技术基础层" {
+    together {
+        [Zen架构\nCPU核心技术] as Zen
+        [RDNA架构\n游戏图形技术] as RDNA
+        [CDNA架构\n计算加速技术] as CDNA
+        [FPGA技术\n可编程逻辑] as FPGA
+    }
+}
 
-' 产品系列层
-[Ryzen系列\n桌面/移动/工作站] as Ryzen
-[EPYC系列\n96核/3D V-Cache] as EPYC
-[Radeon系列\n游戏/专业显卡] as Radeon
-[Instinct系列\nAI/HPC加速器] as Instinct
-[Versal系列\n可编程计算平台] as Versal
+rectangle "产品系列层" {
+    together {
+        [Ryzen系列\n桌面/移动/工作站] as Ryzen
+        [EPYC系列\n96核/3D V-Cache] as EPYC
+        [Radeon系列\n游戏/专业显卡] as Radeon
+        [Instinct系列\nAI/HPC加速器] as Instinct
+        [Versal系列\n可编程计算平台] as Versal
+    }
+}
 
-' 技术基础层
-[Zen架构\nCPU核心技术] as Zen
-[RDNA架构\n游戏图形技术] as RDNA
-[CDNA架构\n计算加速技术] as CDNA
-[FPGA技术\n可编程逻辑] as FPGA
+rectangle "业务板块层" {
+    together {
+        [数据中心业务\n• EPYC + Instinct + FPGA\n• 大规模计算、存储、AI] as DataCenter
+        [客户端业务\n• Ryzen + 芯片组\n• 台式机、笔记本] as Client
+        [游戏业务\n• Radeon + 主机芯片\n• PC游戏、游戏主机] as Gaming
+        [嵌入式业务\n• FPGA + Adaptive SoC\n• 工控、医疗、航空] as Embedded
+    }
+}
 
-' 层级之间的关联
-Zen --> Ryzen
-Zen --> EPYC
-RDNA --> Radeon
-CDNA --> Instinct
-FPGA --> Versal
+' 使用隐藏连接线来强制居中对齐
+Zen -[hidden]-> RDNA
+RDNA -[hidden]-> CDNA
+CDNA -[hidden]-> FPGA
 
-Ryzen --> Client
-Ryzen --> Gaming
-EPYC --> DataCenter
-Radeon --> Gaming
-Instinct --> DataCenter
-Versal --> Embedded
-Versal --> DataCenter
+Ryzen -[hidden]-> EPYC
+EPYC -[hidden]-> Radeon
+Radeon -[hidden]-> Instinct
+Instinct -[hidden]-> Versal
+
+DataCenter -[hidden]-> Client
+Client -[hidden]-> Gaming
+Gaming -[hidden]-> Embedded
 
 @enduml 

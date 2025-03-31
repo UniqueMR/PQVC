@@ -20,7 +20,7 @@ skinparam sequence {
     NoteFontSize 12
 }
 
-skinparam ParticipantPadding 150
+skinparam ParticipantPadding 200
 skinparam BoxPadding 10
 skinparam Shadowing false
 skinparam RoundCorner 8
@@ -29,34 +29,46 @@ participant "<color:#2196F3>Zen</color>\n<size:12>(2017)</size>" as Zen
 participant "<color:#2196F3>Zen2</color>\n<size:12>(2019)</size>" as Zen2
 participant "<color:#2196F3>Zen3</color>\n<size:12>(2020)</size>" as Zen3
 participant "<color:#2196F3>Zen4</color>\n<size:12>(2022)</size>" as Zen4
+participant "<color:#2196F3>Zen5</color>\n<size:12>(2024)</size>" as Zen5
 
-Zen -[#2196F3]> Zen2 : <color:#2196F3><b>7nm + Chiplet</b></color>
-Zen2 -[#2196F3]> Zen3 : <color:#2196F3><b>IPC/频率提升</b></color>
-Zen3 -[#2196F3]> Zen4 : <color:#2196F3><b>5nm + DDR5/PCIe 5.0</b></color>
+Zen -[#2196F3]> Zen2 
+Zen2 -[#2196F3]> Zen3 
+Zen3 -[#2196F3]> Zen4 
+Zen4 -[#2196F3]> Zen5 
 
 note right of Zen
-  • SMT/大容量低延迟缓存/神经网络预测
-  • 单核相比Intel Skylake<10%
-  • 多核性能反超
-  • 能效比领先14nm
+  • 14nm工艺
+  • 最大时钟频率4.2GHz
 end note
 
 note right of Zen2
-  • 单核持平Ice Lake
-  • 服务器64核vs28核领先
-  • 多线程超越9代酷睿
+  • 7nm工艺
+  • 最大时钟频率4.7GHz
+  • IPC提升15%
+  • 32MB L3缓存, 4KB OpCache，512-bit Infinity Fabric位宽
+  • 全新TAGE分支预测
 end note
 
 note right of Zen3
-  • 单核超越11代酷睿
-  • EPYC Milan性能能效领先Ice Lake-SP
-  • 游戏性能持平，部分反超
+  • 6nm工艺
+  • 最大时钟频率4.9GHz
+  • IPC提升19%
+  • "unified complex"设计显著降低core-to-core和core-to-cache延迟 
 end note
 
 note right of Zen4
-  • 单核多核全面领先12/13代酷睿
-  • EPYC Genoa 96核遥遥领先Sapphire Rapids
-  • 移动端能效比优势扩大
+  • 5nm工艺
+  • 最大时钟频率5.7GHz
+  • IPC提升13%
+  • 重新设计frontend，execution engine, load/store hierarchy
+  • L2 cache翻番
 end note
 
+note right of Zen5
+  • 4nm工艺
+  • 最大时钟频率5.8GHz
+  • IPC提升16%
+  • 提升branch prediction准确率
+  • 更宽的pipeline和vector实现高throughput
+end note
 @enduml 
