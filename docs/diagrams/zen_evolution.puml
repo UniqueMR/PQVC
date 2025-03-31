@@ -20,7 +20,7 @@ skinparam sequence {
     NoteFontSize 12
 }
 
-skinparam ParticipantPadding 200
+skinparam ParticipantPadding 75
 skinparam BoxPadding 10
 skinparam Shadowing false
 skinparam RoundCorner 8

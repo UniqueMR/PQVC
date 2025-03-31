@@ -3,7 +3,7 @@
 ## 技术突破
 
 <div align="center">
-<img src="./docs/diagrams/zen_evolution.png" height='250'>
+<img src="./docs/diagrams/zen_evolution.png" height='400'>
 </div>
 
 <div align="center">
