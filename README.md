@@ -22,8 +22,9 @@
 
 ## 战略并购
 
-* **Xilinx收购**：2022年完成收购，获得FPGA和自适应SoC技术，使AMD成为唯一同时拥有高性能CPU、GPU和FPGA的厂商
-* **Pensando收购**：获得DPU技术，加强数据中心网络处理能力，完善了从CPU到GPU再到网络DPU的一体化平台
+* **Xilinx**：2022年完成收购，获得FPGA和自适应SoC技术，使AMD成为唯一同时拥有高性能CPU、GPU和FPGA的厂商
+* **Pensando**：获得DPU技术，加强数据中心网络处理能力，完善了从CPU到GPU再到网络DPU的一体化平台
+* **ZT Systems** ([AMD completes Acquisition of ZT Systems](https://www.amd.com/en/newsroom/press-releases/2025-3-31-amd-completes-acquisition-of-zt-systems.html)): 2025年3月31日；专注定制化服务器和数据中心解决方案；云计算、边缘计算、HPC；底层吃上层的生意
 
 # 产品线和业务线
 
@@ -45,8 +46,9 @@ GPU图形与计算架构:
 *有消息称RDNA和CDNA将在后续统一为UDNA架构
 
 软件平台:
+
 - **ROCm**: 驱动&环境 + 编译器 & 工具 + AI/HPC数学&通信库；主要支持CDNA架构，RDNA适配性较差
-- **Vivado**: RTL设计仿真，IP集成定制，时序分析调优，FPGA编程 
+- **Vivado**: RTL设计仿真，IP集成定制，时序分析调优，FPGA编程
 - **Vitis**: 高层综合HLS，AI推理加速，异构计算支持
 
 ## 产品系列层
@@ -76,11 +78,36 @@ GPU图形与计算架构:
 - 大规模计算、存储、AI
 - CPU+GPU协同工作，Infinity Fabric高速互联
 
+[Supercharge Deepseek-R1 Inference on AMD Instinct MI300X](https://rocm.blogs.amd.com/artificial-intelligence/DeepSeekR1-Part2/README.html)
+
+- 通过使用最新的SGLang框架，得益于MI300X更大的显存容量，与Nvidia H200相比，MI300X实现了在相同latency下throughput提高2到5倍，在相同concurrency下throughput提高75%，latency降低60%
+- 针对ROCm软件(AITER)内核的AI Tensor Engine经过优化，提供+2X GEMM, +3X MoE（混合专家架构）, +17X MLA（多头潜在注意力）解码，+14X MHA prefilling
+
+<div align="center">
+<img src="./docs/diagrams/MI300X-H200.png" height=300'>
+<img src="./docs/diagrams/MI300X-H200-1.png" height='300'>
+</div>
+
 客户端业务:
 
 - Ryzen处理器集成Radeon显卡SoC
 - 台式机、笔记本
 - 全AMD平台优化，统一驱动和调度
+
+AMD RYZEN AI MAX+ 395
+
+将CPU和GPU集成到同一SoC中的优势，可以把内存当显存，显著提升显存容量，适合在本地部署大模型；可本地部署70B大模型(甚至目前有本地部署236B大模型的尝试)
+
+配置信息：
+
+- **CPU**: Strix Halo ZEN5; 16 cores 32 threads; 5.1GHz 80MB cache
+- **GPU**: Radeon 8060S on-board graphics; 40CU; 性能持平4060S；功耗几乎减半
+- **Memory**: 256-bit LPDDR5x 128 GB
+
+性能对比：DeepSeek R1 Distill Llama 70B Q4-K-M
+
+- 幻X 2025: 2.97 tokens/s; 64GB LPDDR5X 8000MHz共享显存
+- RTX 5090D: 1.08 tokens/s; 32GB GDDR7 512bit
 
 游戏业务:
 
