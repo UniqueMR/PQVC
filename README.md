@@ -198,6 +198,8 @@ AMD收购Xilinx，采用全股票交易结构，每股Xilinx普通股将换取1.
 ## 技术资料
 
 - CPU Benchmark: [PassMark](https://www.cpubenchmark.net/high_end_cpus.html)
+- MI300X vs H100 vs H200 Benchmark Part1: Training-CUDA Moat still Alive: [semianalysis](https://semianalysis.com/2024/12/22/mi300x-vs-h100-vs-h200-benchmark-part-1-training/)
+- Supercharge Deepseek-R1 Inference on AMD Instinct MI300X: [AMD](https://rocm.blogs.amd.com/artificial-intelligence/DeepSeekR1-Part2/README.html)
 
 ## 招股说明书
 
