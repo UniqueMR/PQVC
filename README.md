@@ -209,3 +209,8 @@ AMD收购Xilinx，采用全股票交易结构，每股Xilinx普通股将换取1.
 
 - AMD投资者关系网站: [AMD Investor Relations](https://ir.amd.com/)
 - AMD财报：[AMD Financial Results](https://ir.amd.com/financial-information/financial-results)
+
+## 行业新闻
+
+- AMD全球首发2nm芯片: [Bilibili](https://www.bilibili.com/video/BV1vbouYPEiz/?spm_id_from=333.1007.tianma.2-1-4.click&vd_source=1e83eb8960e92747ef23b160dea585ae) 
+
